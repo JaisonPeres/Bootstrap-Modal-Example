@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)https://getbootstrap.com/docs/4.0/examples/navbar-fixed/# -->
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Modal</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+      .scrollable{
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 300px;
+        padding: 0 18px;
+        box-shadow: 1px 0 0 0 rgba(0,0,0,0.2);
+      }
+      .scrollable > div{
+        margin-top: 18px;
+      }
+      .modal-content{
+        border: none;
+      }
+      /* Custom scrollbar */
+      .scrollable::-webkit-scrollbar {
+          width: 8px;
+          margin-right: 10px;
+      }
+      .scrollable::-webkit-scrollbar-track {
+          background: rgb(202, 202, 202); 
+      }
+      .scrollable::-webkit-scrollbar-thumb {
+          background: rgba(0,0,0,0.3); 
+      }
+      .scrollable::-webkit-scrollbar-thumb:hover {
+          background: rgba(0,0,0,0.6);
+      }
+      .no-padding{
+        padding: 0;
+      }
+      .no-margin{
+        margin: 0;
+      }
+      /* Item flexível */
+      .flex-item {
+          display: flex;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+      }
+      .flex-item-main {
+          -webkit-box-flex: 1;
+          -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+          min-width: 0;
+      }
+      .flex-item-side {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+      }
+      .collapse-arrow{
+        width: 12px;
+        height: 12px;
+        transition: all 600ms ease;
+        transform: rotate(45deg);
+        border-style: solid;
+        border-color: white;
+        border-width: 0px 2px 2px 0px;
+        opacity: .5;
+        margin-top: -6px;
+      }
+      .collapse-item{
+        overflow: hidden;
+        border-radius: 3px;
+        margin: 12px 0;
+      }
+      .collapse-item .card:hover .collapse-arrow{
+        opacity: 1;
+      }
+      .collapse-item .card{
+        border: unset;
+        background: #ebebeb;
+      }
+      .collapse-item .card-header{
+        border-bottom: unset;
+        background: rgba(0,0,0,0.5);
+        color: #fff;
+        cursor: pointer;
+      }
+      .modal-lg{
+        max-width: 70%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main role="main" class="container">
+
+      <div class="jumbotron mt-5">
+        <h1>Exemplo de Modal</h1>
+        <p class="lead">Este é um exemplo de modal com duas colunas, cada uma com scroll e listas de itens colapsáveis</p>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Abrir Modal
+        </button>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body no-padding">
+              <div class="row no-margin">
+                <div class="col-6 no-padding">
+                  <div class="scrollable">
+                    <div>
+                      <div class="collapse-item" id="collapse-1">
+                        <div class="card">
+                          <div class="card-header" data-toggle="collapse" data-target="#collapse-target-1" id="heading-collapse-1">
+                            <div class="flex-item">
+                              <div class="flex-item-main">Colapse 1</div>
+                              <div class="flex-item-side">
+                                <div class="collapse-arrow"></div>
+                              </div>
+                            </div>
+                          </div>
+                      
+                          <div id="collapse-target-1" class="collapse" aria-labelledby="heading-collapse-1" data-parent="#collapse-1">
+                            <div class="card-body">
+                              ...
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="collapse-item" id="collapse-2">
+                        <div class="card">
+                          <div class="card-header" data-toggle="collapse" data-target="#collapse-target-2" id="heading-collapse-2">
+                            <div class="flex-item">
+                              <div class="flex-item-main">Colapse 2</div>
+                              <div class="flex-item-side">
+                                <div class="collapse-arrow"></div>
+                              </div>
+                            </div>
+                          </div>
+                      
+                          <div id="collapse-target-2" class="collapse" aria-labelledby="heading-collapse-2" data-parent="#collapse-2">
+                            <div class="card-body">
+                              ...
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="collapse-item" id="collapse-3">
+                        <div class="card">
+                          <div class="card-header" data-toggle="collapse" data-target="#collapse-target-3" id="heading-collapse-3">
+                            <div class="flex-item">
+                              <div class="flex-item-main">Colapse 3</div>
+                              <div class="flex-item-side">
+                                <div class="collapse-arrow"></div>
+                              </div>
+                            </div>
+                          </div>
+                      
+                          <div id="collapse-target-3" class="collapse" aria-labelledby="heading-collapse-3" data-parent="#collapse-3">
+                            <div class="card-body">
+                              ...
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="collapse-item" id="collapse-4">
+                        <div class="card">
+                          <div class="card-header" data-toggle="collapse" data-target="#collapse-target-4" id="heading-collapse-4">
+                            <div class="flex-item">
+                              <div class="flex-item-main">Colapse 2</div>
+                              <div class="flex-item-side">
+                                <div class="collapse-arrow"></div>
+                              </div>
+                            </div>
+                          </div>
+                      
+                          <div id="collapse-target-4" class="collapse" aria-labelledby="heading-collapse-4" data-parent="#collapse-4">
+                            <div class="card-body">
+                              ...
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="collapse-item" id="collapse-5">
+                        <div class="card">
+                          <div class="card-header" data-toggle="collapse" data-target="#collapse-target-5" id="heading-collapse-5">
+                            <div class="flex-item">
+                              <div class="flex-item-main">Colapse 5</div>
+                              <div class="flex-item-side">
+                                <div class="collapse-arrow"></div>
+                              </div>
+                            </div>
+                          </div>
+                      
+                          <div id="collapse-target-5" class="collapse" aria-labelledby="heading-collapse-5" data-parent="#collapse-5">
+                            <div class="card-body">
+                              ...
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6 no-padding">
+                  <div class="scrollable">
+                    <div>
+                      <div class="collapse-item" id="collapse-6">
+                        <div class="card">
+                          <div class="card-header" data-toggle="collapse" data-target="#collapse-target-6" id="heading-collapse-6">
+                            <div class="flex-item">
+                              <div class="flex-item-main">Colapse 6</div>
+                              <div class="flex-item-side">
+                                <div class="collapse-arrow"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div id="collapse-target-6" class="collapse" aria-labelledby="heading-collapse-6" data-parent="#collapse-6">
+                            <div class="card-body">
+                              ...
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="collapse-item" id="collapse-7">
+                        <div class="card">
+                          <div class="card-header" data-toggle="collapse" data-target="#collapse-target-7" id="heading-collapse-7">
+                            <div class="flex-item">
+                              <div class="flex-item-main">Colapse 7</div>
+                              <div class="flex-item-side">
+                                <div class="collapse-arrow"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div id="collapse-target-7" class="collapse" aria-labelledby="heading-collapse-7" data-parent="#collapse-7">
+                            <div class="card-body">
+                              ...
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="collapse-item" id="collapse-8">
+                        <div class="card">
+                          <div class="card-header" data-toggle="collapse" data-target="#collapse-target-8" id="heading-collapse-8">
+                            <div class="flex-item">
+                              <div class="flex-item-main">Colapse 8</div>
+                              <div class="flex-item-side">
+                                <div class="collapse-arrow"></div>
+                              </div>
+                            </div>
+                          </div>
+                      
+                          <div id="collapse-target-8" class="collapse" aria-labelledby="heading-collapse-8" data-parent="#collapse-8">
+                            <div class="card-body">
+                              ...
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="collapse-item" id="collapse-9">
+                        <div class="card">
+                          <div class="card-header" data-toggle="collapse" data-target="#collapse-target-9" id="heading-collapse-9">
+                            <div class="flex-item">
+                              <div class="flex-item-main">Colapse 2</div>
+                              <div class="flex-item-side">
+                                <div class="collapse-arrow"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div id="collapse-target-9" class="collapse" aria-labelledby="heading-collapse-9" data-parent="#collapse-9">
+                            <div class="card-body">
+                              ...
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="collapse-item" id="collapse-10">
+                        <div class="card">
+                          <div class="card-header" data-toggle="collapse" data-target="#collapse-target-10" id="heading-collapse-10">
+                            <div class="flex-item">
+                              <div class="flex-item-main">Colapse 10</div>
+                              <div class="flex-item-side">
+                                <div class="collapse-arrow"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div id="collapse-target-10" class="collapse" aria-labelledby="heading-collapse-10" data-parent="#collapse-10">
+                            <div class="card-body">
+                              ...
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
